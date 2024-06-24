@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Data Analysis</title>
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.5.7/css/pico.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="jsSrc/uploadECG.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <header class="container-fluid header">
+        <nav class="grid">
+            <div class="left">
+                <h1 onClick="window.location.reload()">Apple Watch Data Analysis</h1>
+            </div>
+            <div class="right">
+                <ul>
+                    <li><a href="index.html">첫화면</a></li>
+                    <li><a href="upload&View.html">심박수</a></li>
+                    <li><a href="analysis.html">심전도</a></li>
+                    <li><a href="hosInfo.html">병원정보</a></li>
+                    <li><a href="settings.html">커뮤니티</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+
+        <aside class="sidebar">
+            <nav>
+                <details>
+                    <summary>부정맥</summary>
+                    <ul>
+                        <li><a href="accordionFile/arrhythmia/arrhythmia_0.html">부정맥이란?</a></li>
+                        <li><a href="accordionFile/arrhythmia/arrhythmia_1.html">대표적 증상</a></li>
+                        <li><a href="accordionFile/arrhythmia/arrhythmia_2.html">치료법</a></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>협심증</summary>
+                    <ul>
+                        <li><a href="accordionFile/anginaPectoris/anginaPectoris_0.html">협심증이란?</a></li>
+                        <li><a href="accordionFile/anginaPectoris/anginaPectoris_1.html">대표적 증상</a></li>
+                        <li><a href="accordionFile/anginaPectoris/anginaPectoris_2.html">치료법</a></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>심근경색증</summary>
+                    <ul>
+                        <li><a href="accordionFile/myocardialInfarction/myocardialInfarction_0.html">심근경색증이란?</a></li>
+                        <li><a href="accordionFile/myocardialInfarction/myocardialInfarction_1.html">대표적 증상</a></li>
+                        <li><a href="accordionFile/myocardialInfarction/myocardialInfarction_2.html">치료법</a></li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>심부전증</summary>
+                    <ul>
+                        <li><a href="accordionFile/heartFailure/heartFailure_0.html">심부전증이란?</a></li>
+                        <li><a href="accordionFile/heartFailure/heartFailure_1.html">대표적 증상</a></li>
+                        <li><a href="accordionFile/heartFailure/heartFailure_2.html">치료법</a></li>
+                    </ul>
+                </details>
+            </nav>
+        </aside>
+        <div class="main-content">
+            <h2>ECG 파일 업로드 및 그래프 보기</h2>
+            <form id="upload-form">
+                <input type="file" id="ecg-file" accept=".csv" />
+                <button type="button" onclick="uploadECG()">그래프 띄우기</button>
+            </form>
+            <!-- <div id="user-info" style="display: flex; gap: 20px;"></div> -->
+            <textarea name="read-only" readonly id="user-info"
+                style="display: flex; gap: 20px; width: 400px; height: 60px;"></textarea>
+            <article>
+                <!-- <div id="user-info" style="display: flex; gap: 20px;"></div> -->
+                <canvas id="ecgChart" width="400" height="200"></canvas>
+            </article>
+        </div>
+    </div>
+
+</body>
+
+</html>
